@@ -9,23 +9,26 @@
 </head>
 
 <body>
-    <h1>Exercise API Outline</h1>
+    <h1>CRM API Outline</h1>
     <h2>List of routers needed</h2>
     <ul>
-        <li>Exercises</li>
-        <li>Workouts</li>
-    </ul>
-    <h2>List of routes needed</h2>
-    <ul>
-        <li>All Exercises (GET) /exercises</li>
-        <li>Exercises by type (GET) /exercises/:type</li>
-        <li>Exercises by body part (GET) /exercises/:bodypart</li>
-        <li>Exercise by id (GET) /exercises/:id</li>
-        <li>All Completed Workouts (GET) /workouts</li>
-        <li>Completed Workout by date (GET) /workouts/:date</li>
-        <li>Save workout (POST) /workouts/:workout</li>
-        <li>Update workout (PUT) /workouts/:workout</li>
-        <li>Delete workout (DELETE) /workouts/:id</li>
+        <li>Contacts</li>
+        <ol>
+            <li>GET <strong>/contacts</strong> - returns all contacts</li>
+            <li>POST <strong>/contacts</strong> - will create a new contact</li>
+            <li>PUT <strong>/contacts</strong> - will update existing contact</li>
+            <li>GET <strong>/contacts/:id</strong> - returns contact by id</li>
+            <li>DELETE <strong>/contacts/:id</strong> - deletes a contact by id</li>
+        </ol>
+        <li>Todo</li>
+        <ol>
+            <li>GET <strong>/todos</strong></strong> - returns all to-do's</li>
+            <li>GET <strong>/todos/:id</strong> - returns a to-do by id</li>
+            <li>DELETE <strong>todos/:id</strong> - removes a to-do by id</li>
+            <li>GET <strong>todos/contact/:contactId</strong> - returns all to-do's for a contact by id</li>
+            <li>POST <strong>todos/contacts/:contactId</strong> - creates a new to-do for a contact</li>
+            <li>PUT <strong>todos/contacts/:contactId</strong> - updates a to-do for a contact</li>
+        </ol>
     </ul>
 </body>
 
