@@ -39,8 +39,12 @@ todoRouter
         res.end("Method not allowed");
     })
     .put((req, res) => {
-        res.statusCode = 405;
-        res.end("Method not allowed");
+        const completedTodo = {
+            id: req.params.id,
+            todo: req.body.todo,
+            isComplete: req.body.isComplete
+        }
+        res.end(`Will change the status of a to-do with the id ${req.params.id}`)
     })
     .delete((req, res) => {
         res.end(`Will remove todo with the id: ${req.params.id}`);
@@ -59,22 +63,21 @@ todoRouter
     .post((req, res) => {
         const todo = {
             contact: req.params.contactId,
-            fName: req.body.fName,
-            lName: req.body.lName,
-            email: req.body.email,
-            phone: req.body.phone
+            todo: req.body.todo,
+            date: new Date(),
+            isComplete: false
+        }
+
+        if (!todo.todo) {
+            res.statusCode = 400
+            res.end(`You need to add to-do text to create a new to-do`);
+            return;
         }
         res.end(`Will create a new to-do ${JSON.stringify(todo)}`)
     })
     .put((req, res) => {
-        const todo = {
-            contact: req.params.contactId,
-            fName: req.body.fName,
-            lName: req.body.lName,
-            email: req.body.email,
-            phone: req.body.phone
-        }
-        res.end(`Will update a new to-do ${JSON.stringify(todo)}`)
+        res.statusCode = 405;
+        res.end("Method not allowed");
     })
     .delete((req, res) => {
         res.statusCode = 405;
